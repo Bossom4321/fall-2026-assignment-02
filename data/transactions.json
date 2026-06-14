@@ -1,0 +1,162 @@
+[
+  {
+    "id": "tx-001",
+    "date": "2026-05-01",
+    "amount": 2500.0,
+    "category": "Salary",
+    "description": "Monthly paycheck",
+    "status": "completed"
+  },
+  {
+    "id": "tx-002",
+    "date": "2026-05-02",
+    "amount": -1200.0,
+    "category": "Rent",
+    "description": "Apartment rent payment",
+    "status": "completed"
+  },
+  {
+    "id": "tx-003",
+    "date": "2026-05-03",
+    "amount": -85.5,
+    "category": "Utilities",
+    "description": "Electric bill",
+    "status": "completed"
+  },
+  {
+    "id": "tx-004",
+    "date": "2026-05-04",
+    "amount": -45.2,
+    "category": "Food",
+    "description": "Grocery run",
+    "status": "completed"
+  },
+  {
+    "id": "tx-005",
+    "date": "2026-05-05",
+    "amount": -15.0,
+    "category": "Entertainment",
+    "description": "Streaming service subscription",
+    "status": "completed"
+  },
+  {
+    "id": "tx-006",
+    "date": "2026-05-06",
+    "amount": -350.0,
+    "category": "Business",
+    "description": "Professional conference registration",
+    "status": "completed"
+  },
+  {
+    "id": "tx-007",
+    "date": "2026-05-08",
+    "amount": -12.5,
+    "category": "Transport",
+    "description": "Subway transit fare",
+    "status": "completed"
+  },
+  {
+    "id": "tx-008",
+    "date": "2026-05-10",
+    "amount": -200.0,
+    "category": "Charity",
+    "description": "Donation to local animal shelter",
+    "status": "completed"
+  },
+  {
+    "id": "tx-009",
+    "date": "2026-05-12",
+    "amount": -120.0,
+    "category": "Shopping",
+    "description": "New desk chair",
+    "status": "completed"
+  },
+  {
+    "id": "tx-010",
+    "date": "2026-05-14",
+    "amount": -45.2,
+    "category": "Food",
+    "description": "Grocery run",
+    "status": "completed"
+  },
+  {
+    "id": "tx-011",
+    "date": "2026-05-15",
+    "amount": -1500.0,
+    "category": "Shopping",
+    "description": "High-end gaming laptop purchase",
+    "status": "flagged"
+  },
+  {
+    "id": "tx-012",
+    "date": "2026-05-18",
+    "amount": -75.0,
+    "category": "Medical",
+    "description": "Doctor visit copay",
+    "status": "completed"
+  },
+  {
+    "id": "tx-013",
+    "date": "2026-05-20",
+    "amount": -60.0,
+    "category": "Food",
+    "description": "Dinner at local diner",
+    "status": "completed"
+  },
+  {
+    "id": "tx-014",
+    "date": "2026-05-20",
+    "amount": -60.0,
+    "category": "Food",
+    "description": "Dinner at local diner",
+    "status": "completed"
+  },
+  {
+    "id": "tx-015",
+    "date": "2026-05-22",
+    "amount": -30.0,
+    "category": "Transport",
+    "description": "Gas station fill-up",
+    "status": "completed"
+  },
+  {
+    "id": "tx-016",
+    "date": "2026-05-25",
+    "amount": -150.0,
+    "category": "Business",
+    "description": "Office supplies and stationery",
+    "status": "completed"
+  },
+  {
+    "id": "tx-017",
+    "date": "2026-05-27",
+    "amount": -22.4,
+    "category": "Utilities",
+    "description": "Water utility bill",
+    "status": "pending"
+  },
+  {
+    "id": "tx-018",
+    "date": "2026-05-28",
+    "amount": -120.0,
+    "category": "Entertainment",
+    "description": "Concert ticket purchase",
+    "status": "completed"
+  },
+  {
+    "id": "tx-019",
+    "date": "2026-05-29",
+    "amount": 50.0,
+    "category": "Salary",
+    "description": "Freelance design gig payout",
+    "status": "completed"
+  },
+  {
+    "id": "tx-020",
+    "date": "2026-05-30",
+    "amount": -200.0,
+    "category": "Medical",
+    "description": "Prescription medication order",
+    "status": "completed"
+  }
+]
