@@ -58,7 +58,7 @@ Your team will share a single GitHub repository. **Crucial Rule: There is exactl
 
 ### Git Steps:
 
-1.  **Repository Setup**: One team member must create a private repository on GitHub and invite all other teammates as collaborators. Push this starter harness code to the repository's `main` branch.
+1.  **Repository Setup**: One team member must fork this repository on GitHub and invite all other teammates as collaborators to the fork.
 2.  **Choose Features**: Assign exactly one feature (1-5) to each student.
 3.  **Create a Branch**: Before writing any code, create a branch named exactly:
     `feature/feature-<number>-<your-name>` (e.g., `feature/feature-1-sara`).
@@ -147,7 +147,7 @@ Testing is a core requirement of this assignment. You must write Unit Tests for 
 ### Requirements:
 
 1.  **Test Coverage**: Write tests verifying the correctness of your calculations, grouping, filtering, and report contents. Test at least **3 distinct scenarios** (e.g., normal case, empty/no transactions, edge case parameters).
-2.  **Mocking Async Services**: Since your strategies invoke asynchronous external services, you **MUST mock the service methods** using Vitest (`vi.spyOn` or `vi.mock`). This ensures your tests run reliably without actual database or API dependencies.
+2.  **Mocking Async Services**: Since your strategies invoke asynchronous external services, you **MUST mock the service methods** using Vitest. This ensures your tests run reliably without actual database or API dependencies.
 3.  **Instructional Examples**: Look at `tests/TransactionAuditor.test.ts` to see a working example of mocking and unit testing. Additionally, check the comments in your specific test file (e.g., `tests/BudgetLimitStrategy.test.ts`) for mocking templates.
 
 ---
