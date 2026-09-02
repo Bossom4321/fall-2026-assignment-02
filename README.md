@@ -148,9 +148,7 @@ Testing is a core requirement of this assignment. You must write Unit Tests for 
 
 1.  **Test Coverage**: Write tests verifying the correctness of your calculations, grouping, filtering, and report contents. Test at least **3 distinct scenarios** (e.g., normal case, empty/no transactions, edge case parameters).
 2.  **Mocking Async Services**: Since your strategies invoke asynchronous external services, you **MUST mock the service methods** using Vitest. This ensures your tests run reliably without actual database or API dependencies.
-3.  **Instructional Examples**:
-    - **Testing your Strategy & Mocking Services**: Study `tests/SampleStrategy.test.ts` (and `src/strategies/SampleStrategy.ts`) for a complete, working reference example. It demonstrates how to write unit tests for a strategy and mock an asynchronous external service using `vi.spyOn(Service, 'method').mockResolvedValue(...)`.
-    - **Testing the Context Class**: Check `tests/TransactionAuditor.test.ts` to see how the `TransactionAuditor` context class is tested by passing a mock strategy object.
+3.  **Instructional Example**: Study `tests/SampleStrategy.test.ts` (and `src/strategies/SampleStrategy.ts`) for a complete, working reference example. It demonstrates how to write unit tests for a strategy and mock an asynchronous external service using `vi.spyOn(Service, 'method').mockResolvedValue(...)`.
 
 ---
 
