@@ -34,7 +34,21 @@ describe('BudgetLimitStrategy (Feature 1)', () => {
   //   expect(result).not.toContain('Rent over budget');
   // });
 
-  it.todo('should group expenses correctly by category and sum them');
+  //it.todo('should group expenses correctly by category and sum them');
+  it('should group expenses correctly by category and sum them', async () => {
+    const mockBudgets = { Food: 50};
+    vi.spyOn(BudgetService, 'getCategoryBudgets').mockResolvedValue(mockBudgets);
+    
+    const testTransactions: Transaction[] = [
+      { id: '1', date: '2026-09-16', amount: -50.00, category: 'Food', description: 'Grocery', status: 'completed' },
+      { id: '2', date: '2026-09-17', amount: -30.00, category: 'Food', description: 'Restaurant', status: 'completed' },
+    ];
+
+    const result = await strategy.execute(testTransactions);
+
+    expect(result).toContain('Category: Food');
+    expect(result).toContain('Actual Spending: $80.00');
+  });
 
   it.todo('should calculate absolute overage amounts and percentage exceeded');
 
