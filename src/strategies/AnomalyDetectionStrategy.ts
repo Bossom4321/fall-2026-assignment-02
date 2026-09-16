@@ -71,7 +71,7 @@ export class AnomalyDetectionStrategy implements AuditStrategy {
 
     //check whether the outliers array is empty
     if (outliers.length === 0) {
-      report += 'No outlier transation found.\n';
+      report += 'No outlier transactions found.\n';
     } else {
       //go through each outlier transation
       for (const transaction of outliers) {
