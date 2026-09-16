@@ -95,5 +95,15 @@ describe('BudgetLimitStrategy (Feature 1)', () => {
     expect(result).not.toContain('Overages');
   });
 
-  it.todo('should handle empty transaction list gracefully');
+  //it.todo('should handle empty transaction list gracefully');
+  it('should handle empty transaction list gracefully', async () => {
+    const mockBudgets = { Food: 100 };
+    vi.spyOn(BudgetService, 'getCategoryBudgets').mockResolvedValue(mockBudgets);
+    
+    const testTransactions: Transaction[] = [];
+
+    const result = await strategy.execute(testTransactions);
+
+    expect(result).toBe('Budget Limit Audit Report:\n\n');
+  });
 });
