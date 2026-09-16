@@ -11,14 +11,54 @@ export class TaxDeductionStrategy implements AuditStrategy {
     transactions: Transaction[],
     customParam?: string,
   ): Promise<string> {
-    // TODO: Feature 4 - Implement this strategy.
-    // 1. Call TaxConfigService.getTaxConfig() asynchronously.
-    // 2. Filter expenses (amount < 0) that belong to eligible tax-deductible categories.
-    // 3. Sum total deductible expenses.
-    // 4. Estimate tax savings based on the standard tax rate: total deductible * taxRate.
-    // 5. Estimate sales tax/VAT paid on NON-deductible expenses using standard tax rate.
-    // 6. Format and return a text-based audit report detailing total deductions, savings, VAT estimates, and eligible transactions.
+    const { standardTaxRate, deductibleCategories } = await TaxConfigService.getTaxConfig();
+    const eligibleCategoriesSet = new Set(
+      deductibleCategories.map((cat: string) => cat.toLowerCase())
+    );
 
-    throw new Error('Method not implemented.');
+    const deductibleTransactions: Transaction[] = [];
+    let totalDeductions = 0;
+    let totalNonDeductibleExpenses = 0;
+
+    for (const tx of transactions) {
+      if (tx.amount < 0) {
+        const absAmount = Math.abs(tx.amount);
+        const categoryMatch = eligibleCategoriesSet.has(tx.category?.toLowerCase() ?? '');
+
+        if (categoryMatch) {
+          deductibleTransactions.push(tx);
+          totalDeductions += absAmount;
+        } else {
+          totalNonDeductibleExpenses += absAmount;
+        }
+      }
+    }
+
+    const estimatedTaxSavings = totalDeductions * standardTaxRate;
+    const estimatedVatPaid = totalNonDeductibleExpenses * standardTaxRate;
+    const formattedDeductions = totalDeductions.toFixed(2);
+    const formattedSavings = estimatedTaxSavings.toFixed(2);
+    const formattedVat = estimatedVatPaid.toFixed(2);
+    const taxRatePercent = (standardTaxRate * 100).toFixed(1);
+
+    let report = `Tax & Deductions Audit Report\n`;
+    report += `=============================\n`;
+    report += `Standard Tax Rate: ${taxRatePercent}%\n\n`;
+
+    report += `Eligible Deductible Transactions:\n`;
+    if (deductibleTransactions.length === 0) {
+      report += `  - None found\n`;
+    } else {
+      for (const tx of deductibleTransactions) {
+        report += `  - [${tx.date || 'N/A'}] ${tx.description || 'Expense'}: $${Math.abs(tx.amount).toFixed(2)} (${tx.category})\n`;
+      }
+    }
+
+    report += `\nSummary:\n`;
+    report += `Total Deductible Expenses: $${formattedDeductions}\n`;
+    report += `Estimated Tax Savings: $${formattedSavings}\n`;
+    report += `Estimated VAT Paid (Non-Deductible): $${formattedVat}\n`;
+
+    return report;
   }
 }
