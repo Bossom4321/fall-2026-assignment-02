@@ -50,7 +50,19 @@ describe('BudgetLimitStrategy (Feature 1)', () => {
     expect(result).toContain('Actual Spending: $80.00');
   });
 
-  it.todo('should calculate absolute overage amounts and percentage exceeded');
+  //it.todo('should calculate absolute overage amounts and percentage exceeded');
+  it('should calculate absolute overage amounts and percentage exceeded', async () => {
+    const mockBudgets = { Food: 100 };
+    vi.spyOn(BudgetService, 'getCategoryBudgets').mockResolvedValue(mockBudgets);
+    
+    const testTransactions: Transaction[] = [
+      { id: '1', date: '2026-09-16', amount: -150.00, category: 'Food', description: 'Grocery', status: 'completed' },
+    ];
+
+    const result = await strategy.execute(testTransactions);
+    
+    expect(result).toContain('Overages: $50.00 (50.00%)');
+  });
 
   it.todo(
     'should list the specific transactions contributing to categories that are over budget',
